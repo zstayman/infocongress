@@ -3,5 +3,14 @@
 <% elected_list = @electeds.sort_by {|a| [a.house, a.last_name]} %>
 
 <% elected_list.each do |official| %>
-  <%= link_to("#{official.first_name} #{official.last_name} (#{official.party.upcase}-#{official.state})", elected_path(official.id)) %><br>
+  <%= link_to("#{official.first_name} #{official.last_name} (#{official.party.upcase}-#{official.state})", elected_path(official.id)) %> 
+  
+
+  <% if User.find(session[:user_id]).electeds.include?(official) %>
+  <%= button_to("Unfollow",  elected_electeds_user_path(session[:user_id] ,official.id), :method => :delete) %>
+  <% else %>
+  <%= button_to("Follow", elected_electeds_users_path(official.id), :method => :post) %><br>
+  <% end %>
 <% end %>
+
+<%= binding.pry %>
