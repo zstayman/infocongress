@@ -1,0 +1,7 @@
+<h1>All Elected Officials</h1>
+
+<% elected_list = @electeds.sort_by {|a| [a.house, a.last_name]} %>
+
+<% elected_list.each do |official| %>
+  <%= link_to("#{official.first_name} #{official.last_name} (#{official.party.upcase}-#{official.state})", elected_path(official.id)) %><br>
+<% end %>
