@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Elected.delete_all
 
-legislators = HTTParty.get("https://congress.api.sunlightfoundation.com/legislators?in_office=true&per_page=all&apikey=ENV['SUNLIGHT_API']")
+legislators = HTTParty.get("https://congress.api.sunlightfoundation.com/legislators?in_office=true&per_page=all&apikey=#{SUNLIGHT_API}")
 # binding.pry
     legislators = legislators["results"]
     legislators.each do |elected|
