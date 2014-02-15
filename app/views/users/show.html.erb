@@ -4,3 +4,4 @@
 <% @user.electeds.each do |elected| %>
 <%= link_to("#{elected.first_name} #{elected.last_name} (#{elected.party}-#{elected.state}#{elected.house == "house" ? -elected.district : nil })", elected_path(elected.id)) %><br>
 <% end %>
+

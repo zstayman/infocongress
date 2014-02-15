@@ -3,6 +3,6 @@ class ElectedsController < ApplicationController
     @electeds = Elected.all
   end
   def show
-    @elected = Elected.find(params[:id])
+    @elected = Elected.find_by_id(params[:id].to_i)
   end
 end
