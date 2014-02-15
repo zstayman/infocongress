@@ -1,6 +1,6 @@
 Infocongress::Application.routes.draw do
 resources :electeds do
-  resources :electeds_users
+  resources :electeds_users, only: [:create, :destroy]
 end
 
 resources :users
