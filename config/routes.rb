@@ -3,6 +3,7 @@ resources :electeds do
   resources :electeds_users, only: [:create, :destroy]
 end
 
+resources :committees
 resources :users
 
 get "/login", to: "session#new"

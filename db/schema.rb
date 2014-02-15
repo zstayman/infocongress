@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140214204610) do
+ActiveRecord::Schema.define(version: 20140215190834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assignments", force: true do |t|
+    t.integer "committee_id"
+    t.integer "elected_id"
+  end
+
+  create_table "committees", force: true do |t|
+    t.text    "name"
+    t.text    "committee_id"
+    t.string  "chamber"
+    t.boolean "subcommittee"
+  end
 
   create_table "electeds", force: true do |t|
     t.string  "house"

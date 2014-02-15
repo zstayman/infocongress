@@ -1,0 +1,6 @@
+<h3><%= @committee.name %></h3>
+
+<% @committee.electeds.each do |member| %>
+  <p><%= link_to("#{member.first_name} #{member.last_name} (#{member.party.upcase}-#{member.state})", elected_path(member.id))  %></p>
+
+  <% end %>
