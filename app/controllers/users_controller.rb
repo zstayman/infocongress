@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :user, only: :show
+  before_action :authenticate, :authorize, except: :new
+
   def new
     @user=User.new
   end
@@ -15,11 +18,28 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user=User.find(params[:id])
   end
 
   private
+  
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :zip, :password, :password_confirmation, :password_digest)
+  end
+
+  def authenticate
+    unless logged_in?
+      redirect_to root_path
+    end
+  end
+
+  def authorize
+    binding.pry
+    unless current_user == @user
+      redirect_to root_path
+    end
+  end
+
+  def user
+    @user=User.find(params[:id])
   end
 end

@@ -1,0 +1,4 @@
+<h1>WELCOME TO INFOCONGRESS</h1>
+<% unless logged_in? %>
+<h4><%= link_to("Create an Account", new_user_path) %>
+  <% end %>

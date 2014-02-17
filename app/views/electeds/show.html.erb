@@ -4,7 +4,7 @@
 <% if @elected.fec_id.nil?
   local = nil
 else
-  local = HTTParty.get("http://transparencydata.com/api/1.0/aggregates/pol/#{@elected.fec_id}/contributors/local_breakdown.json?cycle=2014&apikey=#{ENV['SUNLIGHT_API_ID']}
+  local = HTTParty.get("http://transparencydata.com/api/1.0/aggregates/pol/#{@elected.fec_id}/contributors/local_breakdown.json?cycle=2014&apikey=#{SUNLIGHT_API}
   ") 
   end%>
 

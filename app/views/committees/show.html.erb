@@ -1,6 +1,35 @@
 <h3><%= @committee.name %></h3>
 
-<% @committee.electeds.each do |member| %>
-  <p><%= link_to("#{member.first_name} #{member.last_name} (#{member.party.upcase}-#{member.state})", elected_path(member.id))  %></p>
 
-  <% end %>
+<% hearings = HTTParty.get("https://congress.api.sunlightfoundation.com/hearings?committee_id=#{@committee.committee_id}&dc=true&apikey=#{SUNLIGHT_API}")["results"] %> 
+
+<% hearings = hearings.each do |hearing| %>
+<% hearing["occurs_at"] = DateTime.strptime(hearing["occurs_at"], '%Y-%m-%dT%H:%M:%S%z') %>
+<% end %>
+
+<% range = (Date.today.prev_day(7)...Date.today) %>
+<% recent_hearings = hearings.select do |hearing| %>
+<%  range.cover? hearing["occurs_at"] %>
+<% end %>
+
+<% range = (Date.today...Date.today.next_day(7)) %>
+<% upcoming_hearings = hearings.select do |hearing| %>
+<%  range.cover? hearing["occurs_at"] %>
+<% end %>
+
+<h5>Recent Hearings:</h5>
+<p><% recent_hearings.each do |hearing| %>
+  <%= link_to("#{hearing["description"]}", hearing["url"]) %>: <%= hearing["occurs_at"].strftime("%A, %B %e, %Y, %l:%M") %>
+  <% end %></p>
+
+<h5>Upcoming Hearings:</h5>
+<p><% upcoming_hearings.each do |hearing| %>
+  <%= link_to("#{hearing["description"]}", hearing["url"]) %>: <%= hearing["occurs_at"].strftime("%A, %B %e, %Y, %l:%M") %>
+  <% end %></p>
+
+
+<h5>Membership</h5>
+<% @committee.electeds.each do |member| %>
+<p><%= link_to("#{member.first_name} #{member.last_name} (#{member.party.upcase}-#{member.state})", elected_path(member.id))  %></p>
+
+<% end %>
