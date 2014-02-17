@@ -3,9 +3,10 @@
 <p><%= @elected.first_name %> <%= @elected.last_name %> <%= @elected.bio_text %></p>
 
 
-<p><% @elected.committees.each do |committee| %>
+
+  <% @elected.committees.each do |committee| %>
   <%= link_to("#{committee.name}", committee_path(committee)) %><br>
-  <% end %></p>
+  <% end %>
 
   <% unless session[:user_id].nil? %>
   <% if User.find(session[:user_id]).electeds.include?(@elected) %>
