@@ -1,5 +1,23 @@
 <h2><%= @elected.first_name %> <%= @elected.last_name %></h2>
 
+
+<% if @elected.fec_id.nil?
+  local = nil
+else
+  local = HTTParty.get("http://transparencydata.com/api/1.0/aggregates/pol/#{@elected.fec_id}/contributors/local_breakdown.json?cycle=2014&apikey=#{ENV['SUNLIGHT_API_ID']}
+  ") 
+  end%>
+
+
+  <% unless local.nil? %>
+  <p>In-State: $<%= local["In-State"].last %></p>
+  <p>Out-of-State: $<%= local["Out-of-State"].last %></p>
+  <p>Total: $<%= local["In-State"].last.to_i + local["Out-of-State"].last.to_i %>
+    <% else %>
+    <p>No Campaign Finance Information is Currently Available</p>
+  <% end %>
+
+
 <p><%= @elected.first_name %> <%= @elected.last_name %> <%= @elected.bio_text %></p>
 
 
