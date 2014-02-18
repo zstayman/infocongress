@@ -64,5 +64,3 @@ Elected.all.each do |elected|
     elected.save
 end
 end
-
-end
