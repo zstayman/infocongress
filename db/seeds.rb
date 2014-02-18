@@ -11,8 +11,7 @@ Elected.delete_all
 legislators = HTTParty.get("https://congress.api.sunlightfoundation.com/legislators?in_office=true&per_page=all&apikey=#{ENV['SUNLIGHT_API']}")
 # binding.pry
 counter = 0
-while counter < 100
-    legislators = legislators["results"][0..537]
+while counter < 538
     legislators.each do |elected|
       Elected.create({
         house: elected["chamber"],
@@ -30,9 +29,8 @@ while counter < 100
         state: elected["state"],
         bio_text: Nokogiri::HTML(open("http://bioguide.congress.gov/scripts/biodisplay.pl?index=#{elected["bioguide_id"]}")).xpath("//p").first.to_s.split("</font>").last.split("</p>").first.gsub("\r","").gsub("\n","")
         })
+      counter += 1
   end
-
-  counter += 1
 end
 
 Committee.delete_all
