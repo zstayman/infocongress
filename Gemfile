@@ -38,6 +38,9 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'faraday', '~> 0.8.1'
+gem 'excon', '~> 0.28.0'
+
 gem 'pry-rails'
 
 # Use ActiveModel has_secure_password
