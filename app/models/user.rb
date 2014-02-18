@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   def follow_local_electeds
 
-    locals = HTTParty.get("https://congress.api.sunlightfoundation.com/legislators/locate?zip=#{self.zip}&apikey=#{SUNLIGHT_API}")["results"]
+    locals = HTTParty.get("https://congress.api.sunlightfoundation.com/legislators/locate?zip=#{self.zip}&apikey=#{ENV['SUNLIGHT_API']}")["results"]
 
     locals.each do |local|
       elected = Elected.find_by(biography: local["bioguide_id"])
