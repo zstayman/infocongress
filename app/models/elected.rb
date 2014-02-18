@@ -4,5 +4,5 @@ class Elected < ActiveRecord::Base
   has_many :committees, through: :assignments
   validates :biography, presence: true
   validates :biography, uniqueness: true
-  validates :bio_test, presence: true
+  validates :bio_text, presence: true
 end
