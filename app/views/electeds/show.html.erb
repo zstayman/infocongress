@@ -1,5 +1,6 @@
 <h2><%= @elected.first_name %> <%= @elected.last_name %></h2>
 
+<%= image_tag "headshots/#{@elected.biography}.jpg" %>
 
 <% if @elected.fec_id.nil?
   local = nil
@@ -18,7 +19,7 @@ else
   <% end %>
 
 
-<p><%= @elected.first_name %> <%= @elected.last_name %> <%= @elected.bio_text %></p>
+<p><strong><%= @elected.first_name %> <%= @elected.last_name %></strong> <%= @elected.bio_text %></p>
 
 
 
@@ -26,10 +27,4 @@ else
   <%= link_to("#{committee.name}", committee_path(committee)) %><br>
   <% end %>
 
-  <% unless session[:user_id].nil? %>
-  <% if User.find(session[:user_id]).electeds.include?(@elected) %>
-  <%= button_to("Unfollow",  elected_electeds_user_path(session[:user_id] ,@elected.id), :method => :delete) %>
-  <% else %>
-  <%= button_to("Follow", elected_electeds_users_path(@elected.id), :method => :post) %>
-  <% end %>
-  <% end %>
+  <%= render partial: "users/followform", locals: {choice: @elected} %>
