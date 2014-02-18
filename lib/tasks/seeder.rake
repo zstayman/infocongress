@@ -1,7 +1,7 @@
 namespace :seeder do
   desc "TODO"
   task committee: :environment do
-    committees = HTTParty.get("https://congress.api.sunlightfoundation.com/committees?per_page=all&subcommittee=false&apikey=#{SUNLIGHT_API.to_s}")["results"]
+    committees = HTTParty.get("https://congress.api.sunlightfoundation.com/committees?per_page=all&subcommittee=false&apikey=#{SUNLIGHT_API}")["results"]
     committees.each do |committee|
       Committee.create({
         name: committee["name"],
@@ -18,7 +18,7 @@ namespace :seeder do
     committees = Committee.all
     electeds = Elected.all
     electeds.each do |elected|
-      assignments = HTTParty.get("https://congress.api.sunlightfoundation.com//committees?member_ids=#{elected.biography}&subcommittee=false&apikey=#{SUNLIGHT_API.to_s}")["results"]
+      assignments = HTTParty.get("https://congress.api.sunlightfoundation.com//committees?member_ids=#{elected.biography}&subcommittee=false&apikey=#{SUNLIGHT_API}")["results"]
       assignments.each do |committee|
         assignment = committees.find_by(committee_id: committee["committee_id"])
         elected.committees << assignment
@@ -29,7 +29,7 @@ namespace :seeder do
   desc "TODO"
   task fec_id: :environment do
     Elected.all.each do |elected|
-      number = HTTParty.get("http://transparencydata.org/api/1.0/entities/id_lookup.json?apikey=#{SUNLIGHT_API.to_s}&bioguide_id=#{elected.biography}")
+      number = HTTParty.get("http://transparencydata.org/api/1.0/entities/id_lookup.json?apikey=#{SUNLIGHT_API}&bioguide_id=#{elected.biography}")
       if number.first.nil? ? number = nil : number = number.first["id"]
         elected.fec_id = number
         elected.save
