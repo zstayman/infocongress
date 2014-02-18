@@ -34,6 +34,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
 gem 'pry-rails'
 
 # Use ActiveModel has_secure_password
@@ -50,3 +54,5 @@ gem 'nokogiri'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+ruby "2.1.0"

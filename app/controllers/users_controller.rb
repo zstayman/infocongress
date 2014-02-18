@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :user, only: :show
-  before_action :authenticate, :authorize, except: :new
+  before_action :authenticate, :authorize, except: [:new, :create]
 
   def new
     @user=User.new
@@ -11,6 +11,9 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
+
+      @user.follow_local_electeds
+
       redirect_to user_path(@user)
     else
       render(:new)
