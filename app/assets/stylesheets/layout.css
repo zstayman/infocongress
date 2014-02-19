@@ -10,7 +10,9 @@ body {
 }
 
 .content {
-  width: 85%;
+  width: 75%;
+  padding-left: 5%;
+  padding-right: 5%;
   margin: auto;
   margin-top: 100px;
   background-color: rgba(38, 0, 255, .75);
