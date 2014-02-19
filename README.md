@@ -6,10 +6,9 @@ InfoCongress allows you to
 
 
 List with links to all of the gems, apis or libraries you will use
-1.
-2.
-3.
-4.
+1. Nokogiri
+2. Sunlight Foundation Congress API
+3. Sunlight Foundation Influence Explorer API
 
 User Stories
 
