@@ -1,32 +1,122 @@
+html {
+  height: 100%;
+}
+
+body {
+  background: url(http://www.tawbaware.com/maxlyons/DC_IMG_2611-IMG_2648_Capitol_Dome_Interior.jpg);
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  width: 85%;
+  margin: auto;
+  margin-top: 100px;
+  background-color: rgba(38, 0, 255, .75);
+  height: 100vh;
+  padding-top: .5px;
+}
+
+#outer {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+}
+
 #nav_bar {
+  z-index: 1000000;
   height: 100px;
-  overflow: hidden;
-  position: relative;
+  background: url("backgrounds/capitol_panorama.jpg");
+  background-size: 100%;
+
+  /*position: relative;*/
 }
 
 #link-container {
   position: absolute;
   left: 0;
   top: 0;
+  float: right;
+  width: 500px;
 }
 
 .link {
   border-radius: 5px;
-  padding: 5px;
   margin: 0 10px;
-  background-color: lightblue;
+  padding: 5px;
+  padding-top: 10px;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1.3em;
+  border-radius: 10px;
+  font-weight: normal;
+  background: rgba(114, 124, 143, .4);
 }
 
 .link a {
   text-decoration: none;
-  color: navy;
+  color: #F5C453;
 }
 
-.background-image {
-  width: 100%;
-  background-attachment: fixed;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: -95px;
+.welcome {
+  text-align: center;
+  font-size: 50px;
+}
+
+.footer {
+ width:100%;
+  height:100px;
+  position:absolute;
+  bottom:0;
+  left:0;
+  overflow: hidden;
+}
+
+.link-button {
+  padding: 6px;
+}
+
+.link-button a{
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  font-family: Georgia;
+  font-size: 16px;
+}
+
+.link-button a:visited{
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  font-family: Georgia;
+  font-size: 16px;
+}
+
+.links {
+  text-align: center;
+}
+
+a {
+  color: white;
+}
+
+a:link {
+  color: white;
+}
+
+a:hover {
+  color: white;
+}
+
+a:active {
+  color: white;
+}
+
+a:visited {
+  color: white;
+}
+
+.links {
+
 }
