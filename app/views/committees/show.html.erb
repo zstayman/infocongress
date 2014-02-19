@@ -30,6 +30,6 @@
 
 <h5>Membership</h5>
 <% @committee.electeds.each do |member| %>
-<p><%= link_to("#{member.first_name} #{member.last_name} (#{member.party.upcase}-#{member.state})", elected_path(member.id))  %></p>
+<p><%= link_to("#{member.first_name} #{member.last_name} (#{member.party.upcase}-#{member.state})", elected_path(member.id))  %> <%= render partial: "users/followform", locals: {choice: member} %></p>
 
-<% end %>
+<% end %><br><br>

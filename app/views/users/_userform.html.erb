@@ -1,15 +1,15 @@
 <%= form_for @user do |f| %>
   <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
+  <%= f.text_field :first_name %><br>
   <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
+  <%= f.text_field :last_name %><br>
   <%= f.label :zip %>
-  <%= f.number_field :zip %>
+  <%= f.text_field :zip %><br>
   <%= f.label :email %>
-  <%= f.text_field :email %>
+  <%= f.text_field :email %><br>
   <%= f.label :password %>
-  <%= f.password_field :password %>
+  <%= f.password_field :password %><br>
   <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
+  <%= f.password_field :password_confirmation %><br><br>
   <%= f.submit %>
 <% end %>
