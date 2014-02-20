@@ -36,4 +36,5 @@ Infocongress allows you to track federal elected officials and look up informati
 
 ## ERD: 
 
-![ERD](erd.pdf)
+![ERD](../Untitled.tiff)
+
