@@ -58,4 +58,6 @@ gem 'nokogiri'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'rails-erd'
+
 ruby "2.1.0"

@@ -33,3 +33,7 @@ Infocongress allows you to track federal elected officials and look up informati
  - As a User I am the only one who can see my homepage
  - As a User I can see an elected's picture
  - As a User I automatically follow my electeds
+
+## ERD: 
+
+![ERD][../erd.pdf]
