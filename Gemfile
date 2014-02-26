@@ -60,4 +60,14 @@ gem 'nokogiri'
 
 gem 'rails-erd'
 
+group :development, :test do
+  gem 'capybara'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+  gem 'shoulda-matchers'
+end
+
+gem 'launchy'
+
 ruby "2.1.0"

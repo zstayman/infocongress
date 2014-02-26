@@ -1,6 +1,19 @@
 <h1>All Elected Officials</h1>
 
+<%= form_for @elected, url: "/electeds/filter", method: "post" do |f| %>
+  <%= f.label :state %>
+  <select id="State" name="state">
+
+    <% Elected.all.pluck(:state).uniq.each do |state| %>
+    <option value="<%= state %>"><%= state %></option>
+    <% end %>
+
+  </select>
+  <%= f.submit "Filter" %>
+<% end %>
+
 <% elected_list = @electeds.sort_by {|a| [a.house, a.last_name]} %>
+
 
 <% elected_list.each do |official| %>
 <%= link_to("#{official.first_name} #{official.last_name} (#{official.party.upcase}-#{official.state})", elected_path(official.id)) %> 
@@ -10,3 +23,4 @@
 <% end %>
 
 
+Elected.all.pluck(:state).uniq

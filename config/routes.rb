@@ -9,7 +9,7 @@ resources :users
 get "/login", to: "session#new"
 post "/session", to: "session#create"
 delete "/session", to: "session#destroy"
-
+post "/electeds/filter", to: "electeds#filter"
 root "welcome#index"
 
 
