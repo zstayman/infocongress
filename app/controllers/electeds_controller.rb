@@ -1,12 +1,7 @@
 class ElectedsController < ApplicationController
   def index
 
-    binding.pry
-    unless defined?(@@electeds)
-      @electeds = Elected.all
-    else
-      @electeds = @@electeds
-    end
+    @electeds = Elected.all
     @elected = Elected.new
   end
   def show
@@ -14,7 +9,8 @@ class ElectedsController < ApplicationController
   end
 
   def filter
-    @@electeds = Elected.where(state: params[:state])
-    redirect_to electeds_path
+    @electeds = Elected.where(state: params[:state])
+    @elected = Elected.new
+    render(:index)
   end
 end
