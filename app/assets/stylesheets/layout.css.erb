@@ -1,35 +1,30 @@
+@import url(http://fonts.googleapis.com/css?family=Old+Standard+TT);
+@import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
+
 html {
   height: 100%;
   color: white;
 }
 
 body {
-  background: url(http://www.tawbaware.com/maxlyons/DC_IMG_2611-IMG_2648_Capitol_Dome_Interior.jpg);
+  /*background: url();*/
   background-size: cover;
   height: 100%;
   width: 100%;
 }
 
 .content {
-  width: 75%;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-top: 10px;
-  margin: auto;
-  margin-top: 100px;
-  background-color: rgba(38, 0, 255, .75);
-  height: 100vh;
-  padding-top: .5px;
   height: 100%;
+  position: relative;
+  top: 0;
+  margin-top: -20px;
+  z-index: -100;
+  background-color:rgb(10,110, 178);
 }
 
 #outer {
   width: 100%;
-  height: 100px;
-  background: url(<%= asset_path "backgrounds/capitol_panorama.jpg" %>);
-  background-size: 100%;
-
-  /*position: relative;*/
+  background: rgba(1,1,1,0);
   position: fixed;
   top: 0px;
 }
@@ -56,19 +51,29 @@ body {
   line-height: 1.3em;
   border-radius: 10px;
   font-weight: normal;
-  background: rgba(114, 124, 143, .4);
+  background: rgba(0, 0, 0, .75);
+  box-shadow: -2px 2px 1px white;
 }
 
 .link a {
   text-decoration: none;
-  color: #F5C453;
+  color: black;
 }
 
-.welcome {
+.title {
+
+  background: rgba(0,0,0,.35); ;
   text-align: center;
   font-size: 50px;
-  font-family: Georgia;
+  font-weight: bolder;
+  letter-spacing: 2px;
   color: white;
+   -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+  display: block;
+  margin: 500px 0 389px 0;
+  font-family: 'Holtwood One SC', serif;
 }
 
 .footer {
@@ -121,14 +126,13 @@ a:active {
 }
 
 a:visited {
-  color: white;
+  color: rgb(232,212,209);
 }
 
 .links a {
   color: blue;
   font-size: 18px;
   padding: 2px 5px 2px 5px;
-  border: 1px solid orange;
 }
 
 .links a:hover {
@@ -145,4 +149,69 @@ label {
 
 .wrapper {
   height: 100%;
+}
+
+.epigraph {
+  background-color: rgb(10,110, 178);
+  width: 100%;
+  display: block;
+  position: absolute;
+  font-family: 'Ruda';
+  font-size: 26px;
+}
+
+#epigraph {
+  text-align: justify;
+  padding: 0 150px;
+  font-family: 'Ruda';
+}
+
+#attribution {
+  text-align: right;
+  padding: 0 150px;
+  margin-top: -55px;
+  margin-right: 45px;
+  font-family: 'Ruda';
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.welcome {
+  width: 100%;
+  height: 1003px;
+  background-image: url(http://www.tawbaware.com/maxlyons/DC_IMG_2611-IMG_2648_Capitol_Dome_Interior.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+}
+
+.login {
+  width: 100%;
+  position: absolute;
+  margin-top: 240px;
+  background-color: rgb(10,110,178)
+}
+
+.login a {
+  background: rgb(7, 78, 127);
+background: -moz-linear-gradient(90deg, rgb(7, 78, 127) 0%, rgb(4, 47, 76) 100%);
+background: -webkit-linear-gradient(90deg, rgb(7, 78, 127) 0%, rgb(4, 47, 76) 100%);
+background: -o-linear-gradient(90deg, rgb(7, 78, 127) 0%, rgb(4, 47, 76) 100%);
+background: -ms-linear-gradient(90deg, rgb(7, 78, 127) 0%, rgb(4, 47, 76) 100%);
+background: linear-gradient(180deg, rgb(7, 78, 127) 0%, rgb(4, 47, 76) 100%);
+padding: 5px 8px;
+border-radius: 10px;
+border: .5px solid black;
+font-family: 'Ruda';
+font-size: 20px;
+font-style: bold;
+}
+
+#login-form {
+  font-family: 'Ruda';
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 200px;
+  display: block;
 }

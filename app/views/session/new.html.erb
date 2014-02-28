@@ -1,4 +1,6 @@
 <br>
+<div id="login-form">
+  <h2>LOG IN</h2>
 <%= form_tag "/session" do %>
 <%= label_tag :email %>
 <%= email_field_tag :email %> <br><br>
@@ -6,3 +8,4 @@
 <%= password_field_tag :password %><br><br>
 <%= submit_tag "Log in!" %>
 <% end %>
+</div>
