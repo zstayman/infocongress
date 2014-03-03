@@ -11,35 +11,36 @@ body {
   background-size: cover;
   height: 100%;
   width: 100%;
-}
-
-.content {
-  height: 100%;
-  position: relative;
-  top: 0;
-  margin-top: -20px;
-  z-index: -100;
   background-color:rgb(10,110, 178);
 }
 
-#outer {
+.content {
+  /*height: 100%;*/
+  position: relative;
+  top: 0;
+  /*margin-top: -20px;*/
+  /*z-index: -100;*/
+  /*background-color:rgb(10,110, 178);*/
+}
+
+/*#outer {
   width: 100%;
   background: rgba(1,1,1,0);
   position: fixed;
   top: 0px;
-}
+}*/
 
 #nav_bar {
-  z-index: 1000000;
+  /*z-index: 1000000;*/
 }
 
-#link-container {
+/*#link-container {
   position: absolute;
   left: 0;
   top: 0;
   float: right;
   width: 500px;
-}
+}*/
 
 .link {
   border-radius: 5px;
@@ -57,7 +58,13 @@ body {
 
 .link a {
   text-decoration: none;
-  color: black;
+  color: rgb(205,192, 176);
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.link a:visited {
+  color: rgb(205,192,176);
 }
 
 .title {
@@ -89,7 +96,7 @@ body {
   padding: 6px;
 }
 
-.link-button a{
+ a{
   text-decoration: none;
   text-align: center;
   color: white;
@@ -97,7 +104,7 @@ body {
   font-size: 16px;
 }
 
-.link-button a:visited{
+a:visited{
   text-decoration: none;
   text-align: center;
   color: white;
@@ -123,10 +130,6 @@ a:hover {
 
 a:active {
   color: white;
-}
-
-a:visited {
-  color: rgb(232,212,209);
 }
 
 .links a {
@@ -183,7 +186,8 @@ label {
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  top: 0;
+  top: -27px;
+  z-index: -1;
 }
 
 .login {
@@ -214,4 +218,18 @@ font-style: bold;
   margin: 0 auto;
   margin-top: 200px;
   display: block;
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] button, input, optgroup, select, textarea {
+  display: inline;
+  background:  rgb(191, 31, 30);
+  border: 1px solid black;
+  margin: 2px;
+  color: blue;
+}
+
+img {
+  margin: 5px;
+  border: 5px solid white;
+  margin-left: 50%;
 }

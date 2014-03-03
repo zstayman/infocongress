@@ -66,8 +66,9 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'ffaker'
   gem 'shoulda-matchers'
+  gem 'launchy'
+  gem 'simplecov'
 end
 
-gem 'launchy'
 
 ruby "2.1.0"

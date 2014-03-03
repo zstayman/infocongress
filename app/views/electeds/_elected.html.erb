@@ -1,0 +1,3 @@
+<%= link_to("#{elected.first_name} #{elected.last_name} (#{elected.party.upcase}-#{elected.state})", elected_path(elected.id)) %> 
+
+ <%= render partial: "users/followform", locals: {choice: elected} %>

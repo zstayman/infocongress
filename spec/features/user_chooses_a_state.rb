@@ -8,9 +8,7 @@ describe "users can see specific states delegations" do
 
   it "shows only electeds from a specific state" do
     login(user)
-    # binding.pry
     visit electeds_path
-    save_and_open_page
     select elected.state, from: "State"
     click_button "Filter"
     

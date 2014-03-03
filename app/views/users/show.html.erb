@@ -1,10 +1,8 @@
 <h1><%= @user.first_name %></h1>
 <p><%= link_to("Edit Your Account", edit_user_path(@user)) %></p>
 
-<% @user.electeds.each do |elected| %>
-<%= link_to("#{elected.first_name} #{elected.last_name} (#{elected.party}-#{elected.state}#{elected.house == "house" ? -elected.district : nil })", elected_path(elected.id)) %><br>
-<% end %>
-<br>
+<%= render partial: "electeds/elected", collection: @electeds || "You don't follow anyone" %>
+
 <form action="/users/<%= @user.id %>" method="POST" >
   <input type="hidden" name="_method" value="DELETE" />
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />

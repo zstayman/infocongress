@@ -4,7 +4,7 @@
   <%= f.label :state %>
   <select id="State" name="state">
 
-    <% Elected.all.pluck(:state).uniq.each do |state| %>
+    <% Elected.all.pluck(:state).uniq.sort.each do |state| %>
     <option value="<%= state %>"><%= state %></option>
     <% end %>
 
@@ -12,15 +12,5 @@
   <%= f.submit "Filter" %>
 <% end %>
 
-<% elected_list = @electeds.sort_by {|a| [a.house, a.last_name]} %>
+<%= render @electeds %>
 
-
-<% elected_list.each do |official| %>
-<%= link_to("#{official.first_name} #{official.last_name} (#{official.party.upcase}-#{official.state})", elected_path(official.id)) %> 
-
- <%= render partial: "users/followform", locals: {choice: official} %>
-<br>
-<% end %>
-
-
-Elected.all.pluck(:state).uniq
