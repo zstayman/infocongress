@@ -1,5 +1,10 @@
+@import url(http://fonts.googleapis.com/css?family=Holtwood+One+SC);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
 html {
   height: 100%;
+  font-family: "Open Sans", sans-serif;
+  color: white;
 }
 
 body {
@@ -84,7 +89,7 @@ body {
   text-decoration: none;
   text-align: center;
   color: white;
-  font-family: Georgia;
+  font-family: "Open Sans";
   font-size: 16px;
 }
 
@@ -92,7 +97,7 @@ body {
   text-decoration: none;
   text-align: center;
   color: white;
-  font-family: Georgia;
+  font-family: "Open Sans";
   font-size: 16px;
 }
 
@@ -122,9 +127,9 @@ a:visited {
 
 .links a {
   color: white;
-  font-size: 18px;
+  font-size: .75em;
   border: 1px solid white;
-  padding: 7px;
+  padding: 20px;
   border-radius: 10px;
 }
 
@@ -138,13 +143,19 @@ a:visited {
   margin-top: 600px;
   clear: both;
   color: white;
-  font-size: 24px;
+  font-size: .35em;
 }
 
 .title {
-background: rgba(0,0,0,0.35);
+background: -moz-linear-gradient(left,  rgba(0,0,0,0) 0%, rgba(0,0,0,.5) 10%, rgba(0,0,0,.5) 50%, rgba(0,0,0,.5) 90%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0)), color-stop(10%,rgba(0,0,0,.5)), color-stop(50%,rgba(0,0,0,.5)), color-stop(90%,rgba(0,0,0,.5)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,.5) 10%,rgba(0,0,0,.5) 50%,rgba(0,0,0,.5) 90%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,.5) 10%,rgba(0,0,0,.5) 50%,rgba(0,0,0,.5) 90%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,.5) 10%,rgba(0,0,0,.5) 50%,rgba(0,0,0,.5) 90%,rgba(0,0,0,0) 100%); /* IE10+ */
+background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(0,0,0,.5) 10%,rgba(0,0,0,.5) 50%,rgba(0,0,0,.5) 90%,rgba(0,0,0,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
 text-align: center;
-font-size: 50px;
+font-size: 1em;
 font-weight: bolder;
 letter-spacing: 2px;
 color: white;
@@ -155,4 +166,51 @@ display: block;
 margin: 400px 0 0px 0;
 font-family: 'Holtwood One SC', serif;
 width: 100%;
+}
+
+#login-form, #new_user {
+  width: 50%;
+  margin: 0 auto;
+  background-color: rgba(0,0,0,.25);
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.5em;
+}
+
+form {
+  text-align: center;
+  padding: 20px;
+  padding-bottom: ;
+  width: 200px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+
+form input {
+  width: 175px;
+  margin: 0 auto;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: "Open Sans";
+  color: black;
+}
+
+form input[type="submit"], button {
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+}
+
+form input[type="submit"]:hover, button:hover {
+  background-color: rgb(191,31,30);
+  color: white;
+} 
+
+form label {
+  font-size: 1.25em;
+  color: white;
+  text-align: left;
 }
