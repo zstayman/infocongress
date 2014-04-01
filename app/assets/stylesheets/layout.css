@@ -182,7 +182,6 @@ h2 {
 form {
   text-align: center;
   padding: 20px;
-  padding-bottom: ;
   width: 200px;
   margin: 0 auto;
   padding-bottom: 50px;
@@ -213,4 +212,15 @@ form label {
   font-size: 1.25em;
   color: white;
   text-align: left;
+}
+
+.content {
+  
+  width: 75%;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 5em;
+  text-align: center;
 }
