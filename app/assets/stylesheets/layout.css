@@ -262,4 +262,6 @@ form {
   background: white;
   border: 1px solid black;
   color: black;
+  font-family: "Open Sans", sans-serif;
+  width: 75px;
 }
