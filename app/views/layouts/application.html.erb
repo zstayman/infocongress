@@ -9,45 +9,40 @@
 <body>
   <div class="wrapper">
     <!--<div id="outer">-->
-      <header id="nav_bar">
+    <header id="nav_bar">
 
-        <!-- <img class="background-image" src="http://www.matthewbphoto.com/data/photos/62_1us_capitol_panorama.jpg" alt="capitol at twilight" /> -->
-        
-        <div id="link-container">
-          <span class="link">
-            <%= link_to("Home", (session[:user_id].nil? ? root_path
-            : user_path(User.find(session[:user_id])))) %>
-          </span>
-          <% unless session[:user_id].nil? %>
-          <span class="link">
-            <%= link_to("Electeds", electeds_path) %>
-          </span>
-          <% end %>
-          <% if session[:user_id].nil?  %>
-          <span class="link">
+      <!-- <img class="background-image" src="http://www.matthewbphoto.com/data/photos/62_1us_capitol_panorama.jpg" alt="capitol at twilight" /> -->
 
-            <%= link_to("Please Log in", "/login") %>
-            
-          </span>
-          <% end %>
-          <% unless session[:user_id].nil? %>
-          <span class="link">
-            <%= link_to( "Log Out", "/session", method: "delete") %>
-          </span>
-          <% end %>
-        </div>
+      <div id="link-container">
+        <span class="link">
+          <%= link_to("Home", (session[:user_id].nil? ? root_path
+          : user_path(User.find(session[:user_id])))) %>
+        </span>
+        <% unless session[:user_id].nil? %>
+        <span class="link">
+          <%= link_to("Electeds", electeds_path) %>
+        </span>
+        <% end %>
+        <% if session[:user_id].nil?  %>
+        <span class="link">
 
-      </header>
+          <%= link_to("Please Log in", "/login") %>
+
+        </span>
+        <% end %>
+        <% unless session[:user_id].nil? %>
+        <span class="link">
+          <%= link_to( "Log Out", "/session", method: "delete") %>
+        </span>
+        <% end %>
+      </div>
+
+    </header>
     <!--</div>-->
     <div class="content">
       <%= yield %>
     </div>
+  </div>
 
-<!--   <footer class="footer">
-
-    <img class="bottom-image" src="http://www.matthewbphoto.com/data/photos/62_1us_capitol_panorama.jpg" alt="capitol at twilight" />
-
-  </footer> -->
-</div>
 </body>
 </html>

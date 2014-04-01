@@ -12,7 +12,7 @@
 
       <div class="campaign-finance">
         <% unless local.nil? %>
-        <p>In the 2014 Campaign Cycle <%= @elected.first_name %> <%= @elected.last_name %> has raised a total of $<%= number_with_delimiter(local["In-State"].last.to_i + local["Out-of-State"].last.to_i, delimiter: ",") %>, broken down as follows:</p>
+        <p class="center-text">In the 2014 Campaign Cycle <%= @elected.first_name %> <%= @elected.last_name %> has raised a total of $<%= number_with_delimiter(local["In-State"].last.to_i + local["Out-of-State"].last.to_i, delimiter: ",") %>, broken down as follows:</p>
         <p>In-State: $<%= local["In-State"].last %></p>
         <p>Out-of-State: $<%= local["Out-of-State"].last %></p>
         <% else %>

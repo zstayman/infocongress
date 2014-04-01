@@ -1,6 +1,10 @@
 <div class="indiv-elected">
 <%= link_to("#{elected.first_name} #{elected.last_name} (#{elected.party.upcase}-#{elected.state})", elected_path(elected.id)) %> 
-<%= image_tag "headshots/#{elected.biography}.jpg" %>
+<%if File.exists?(Rails.root.join("app","assets","images","headshots","#{elected.biography}.jpg")) %>
+<%= link_to (image_tag "headshots/#{elected.biography}.jpg"), elected_path(elected.id) %>
+<% else %>
+<div class="img-placeholder"><p>NO PICTURE AVAILABLE</p></div>
+<% end %>
 <%= render partial: "users/followform", locals: {choice: elected} %>
 
  

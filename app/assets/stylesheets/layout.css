@@ -10,7 +10,6 @@ html {
 body {
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
   width: 100%;
   background-color: #0a6eb2;
 }
@@ -229,6 +228,8 @@ h1 {
 .indiv-elected {
   display: inline-block;
   margin: 30px;
+  height: 333px;
+  width: 225px;
 }
 
 img {
@@ -266,4 +267,46 @@ form {
   color: black;
   font-family: "Open Sans", sans-serif;
   width: 75px;
+}
+
+.img-placeholder {
+  height: 256px;
+  width: 214px;
+  background: rgba(0,0,0,.4);
+  border-radius: 10px;
+  
+ 
+}
+
+.img-placeholder p {
+  font-size: 1.5em;
+  margin: 0;
+  padding-top: 50px;
+}
+
+.campaign-finance, .elected-bio, .elected-committee {
+  text-align: left;
+  font-size: 1.25em;
+  margin: 15px;
+  padding: 5px 20px 15px 20px;
+  background: rgba(0, 0, 0, .25);
+}
+
+.center-text {
+  text-align: center;
+  font-weight: bolder;
+}
+
+/*.footer {
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  clear: both;
+  width: 100%;
+  display: block;
+}*/
+
+.wrapper {
+  position: relative;
+  margin-bottom: 100px;
 }
