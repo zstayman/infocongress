@@ -3,7 +3,6 @@ html {
 }
 
 body {
-  background: url(http://www.tawbaware.com/maxlyons/DC_IMG_2611-IMG_2648_Capitol_Dome_Interior.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
@@ -12,6 +11,7 @@ body {
 }
 
 .content {
+  background: url(http://www.tawbaware.com/maxlyons/DC_IMG_2611-IMG_2648_Capitol_Dome_Interior.jpg);
   width: 75%;
   padding-left: 5%;
   padding-right: 5%;
