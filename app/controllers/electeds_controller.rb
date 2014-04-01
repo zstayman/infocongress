@@ -1,6 +1,8 @@
 class ElectedsController < ApplicationController
   def index
-
+    unless logged_in?
+      redirect_to root_path
+    end
     @electeds = Elected.all.sort_by {|a| [a.house, a.last_name]}
     @elected = Elected.new
   end
