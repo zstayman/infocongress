@@ -179,7 +179,7 @@ h2 {
   font-size: 2.5em;
 }
 
-form {
+#login-form form, #new_user form {
   text-align: center;
   padding: 20px;
   width: 200px;
@@ -187,7 +187,7 @@ form {
   padding-bottom: 50px;
 }
 
-form input {
+#login-form form input, #new_user form input {
   width: 175px;
   margin: 0 auto;
   background-color: white;
@@ -200,6 +200,7 @@ form input {
 form input[type="submit"], button {
   background-color: white;
   border: 1px solid black;
+  border-radius: 5px;
   color: black;
 }
 
@@ -214,8 +215,8 @@ form label {
   text-align: left;
 }
 
-.content {
-  
+.display-space {
+
   width: 75%;
   margin: 0 auto;
 }
@@ -223,4 +224,8 @@ form label {
 h1 {
   font-size: 5em;
   text-align: center;
+}
+
+.indiv-elected {
+  display: inline-block;
 }
