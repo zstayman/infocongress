@@ -13,11 +13,12 @@ body {
 .content {
   background: url(http://www.tawbaware.com/maxlyons/DC_IMG_2611-IMG_2648_Capitol_Dome_Interior.jpg);
   width: 75%;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 12.5%;
+  padding-right: 12.5%;
   margin: auto;
-  margin-top: 100px;
-  /*background-color: rgba(38, 0, 255, .75);*/
+  margin-top: -100px;
+  background-size: cover;
+  background-repeat: no-repeat;
   height: 100vh;
   padding-top: .5px;
 }
@@ -137,7 +138,7 @@ a:visited {
 }
 
 .epigraph {
-  margin-top: 600px;
+  margin-top: 400px;
   clear: both;
   color: white;
   font-size: 24px;
