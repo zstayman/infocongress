@@ -1,32 +1,35 @@
 <div class="display-space">
-<h2><%= @elected.first_name %> <%= @elected.last_name %></h2>
+  <h2><%= @elected.first_name %> <%= @elected.last_name %></h2>
 
-<%= image_tag "headshots/#{@elected.biography}.jpg" %>
+  <%= image_tag "headshots/#{@elected.biography}.jpg" %>
 
-<% if @elected.fec_id.nil?
-  local = nil
-else
-  local = HTTParty.get("http://transparencydata.com/api/1.0/aggregates/pol/#{@elected.fec_id}/contributors/local_breakdown.json?cycle=2014&apikey=#{ENV['SUNLIGHT_API']}
-  ") 
-  end%>
+  <% if @elected.fec_id.nil?
+    local = nil
+  else
+    local = HTTParty.get("http://transparencydata.com/api/1.0/aggregates/pol/#{@elected.fec_id}/contributors/local_breakdown.json?cycle=2014&apikey=#{ENV['SUNLIGHT_API']}
+      ") 
+      end%>
+
+      <div class="campaign-finance">
+        <% unless local.nil? %>
+        <p>In the 2014 Campaign Cycle <%= @elected.first_name %> <%= @elected.last_name %> has raised a total of $<%= number_with_delimiter(local["In-State"].last.to_i + local["Out-of-State"].last.to_i, delimiter: ",") %>, broken down as follows:</p>
+        <p>In-State: $<%= local["In-State"].last %></p>
+        <p>Out-of-State: $<%= local["Out-of-State"].last %></p>
+        <% else %>
+        <p>No Campaign Finance Information is Currently Available</p>
+        <% end %>
+      </div>
+
+      <div class="elected-bio">
+        <p><strong><%= @elected.first_name %> <%= @elected.last_name %></strong> <%= @elected.bio_text %></p>
+      </div>
 
 
-  <% unless local.nil? %>
-  <p>In the 2014 Campaign Cycle <%= @elected.first_name %> <%= @elected.last_name %> has raised a total of $<%= local["In-State"].last.to_i + local["Out-of-State"].last.to_i %>, broken down as follows:</p>
-  <p>In-State: $<%= local["In-State"].last %></p>
-  <p>Out-of-State: $<%= local["Out-of-State"].last %></p>
-    <% else %>
-    <p>No Campaign Finance Information is Currently Available</p>
-  <% end %>
+      <div class="elected-committee">
+        <% @elected.committees.each do |committee| %>
+        <%= link_to("#{committee.name}", committee_path(committee)) %><br>
+        <% end %>
+      </div>
 
-
-<p><strong><%= @elected.first_name %> <%= @elected.last_name %></strong> <%= @elected.bio_text %></p>
-
-
-
-  <% @elected.committees.each do |committee| %>
-  <%= link_to("#{committee.name}", committee_path(committee)) %><br>
-  <% end %>
-
-  <%= render partial: "users/followform", locals: {choice: @elected} %>
-</div>
+      <%= render partial: "users/followform", locals: {choice: @elected} %>
+    </div>
