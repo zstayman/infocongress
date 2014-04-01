@@ -8,7 +8,7 @@
 require 'open-uri'
 
 Elected.delete_all
-legislators = HTTParty.get("https://congress.api.sunlightfoundation.com/legislators?in_office=true&per_page=all&apikey=#{ENV['SUNLIGHT_API']}")["results"]
+legislators = HTTParty.get("http://congress.api.sunlightfoundation.com/legislators?in_office=true&per_page=all&apikey=#{ENV['SUNLIGHT_API']}")["results"]
 # binding.pry
 counter = 0
 while counter < 538
@@ -34,7 +34,7 @@ while counter < 538
 end
 
 Committee.delete_all
-committees = HTTParty.get("https://congress.api.sunlightfoundation.com/committees?per_page=all&subcommittee=false&apikey=#{ENV['SUNLIGHT_API']}")["results"]
+committees = HTTParty.get("http://congress.api.sunlightfoundation.com/committees?per_page=all&subcommittee=false&apikey=#{ENV['SUNLIGHT_API']}")["results"]
 committees.each do |committee|
   Committee.create({
     name: committee["name"],
@@ -48,7 +48,7 @@ Assignment.delete_all
 committees = Committee.all
 electeds = Elected.all
 electeds.each do |elected|
-  assignments = HTTParty.get("https://congress.api.sunlightfoundation.com//committees?member_ids=#{elected.biography}&subcommittee=false&apikey=#{ENV['SUNLIGHT_API']}")["results"]
+  assignments = HTTParty.get("http://congress.api.sunlightfoundation.com//committees?member_ids=#{elected.biography}&subcommittee=false&apikey=#{ENV['SUNLIGHT_API']}")["results"]
   assignments.each do |committee|
     assignment = committees.find_by(committee_id: committee["committee_id"])
     elected.committees << assignment

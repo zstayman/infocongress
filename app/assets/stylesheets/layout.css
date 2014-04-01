@@ -5,8 +5,10 @@ html {
 body {
   background: url(http://www.tawbaware.com/maxlyons/DC_IMG_2611-IMG_2648_Capitol_Dome_Interior.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
   height: 100%;
   width: 100%;
+  background-color: #0a6eb2;
 }
 
 .content {
@@ -15,7 +17,7 @@ body {
   padding-right: 5%;
   margin: auto;
   margin-top: 100px;
-  background-color: rgba(38, 0, 255, .75);
+  /*background-color: rgba(38, 0, 255, .75);*/
   height: 100vh;
   padding-top: .5px;
 }
@@ -28,8 +30,7 @@ body {
 
 #nav_bar {
   z-index: 1000000;
-  height: 100px;
-  background: url("backgrounds/capitol_panorama.jpg");
+  height: 100px; 
   background-size: 100%;
 
   /*position: relative;*/
@@ -122,15 +123,38 @@ a:visited {
 }
 
 .links a {
-  color: blue;
+  color: white;
   font-size: 18px;
+  border: 1px solid white;
+  padding: 7px;
+  border-radius: 10px;
 }
 
 .links a:hover {
   color: red;
-  text-decoration: underline;
+  text-decoration: none;
+  background: white;
 }
 
-.links {
-  border: 1px solid yellow;
+.epigraph {
+  margin-top: 600px;
+  clear: both;
+  color: white;
+  font-size: 24px;
+}
+
+.title {
+background: rgba(0,0,0,0.35);
+text-align: center;
+font-size: 50px;
+font-weight: bolder;
+letter-spacing: 2px;
+color: white;
+-webkit-text-fill-color: white;
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: black;
+display: block;
+margin: 389px 0 375px 0;
+font-family: 'Holtwood One SC', serif;
+width: 100%;
 }
