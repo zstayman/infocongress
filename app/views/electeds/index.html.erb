@@ -1,16 +1,18 @@
+<div class="display-space">
 <h1>All Elected Officials</h1>
 
 <%= form_for @elected, url: "/electeds/filter", method: "post" do |f| %>
-  <%= f.label :state %>
-  <select id="State" name="state">
+<%= f.label :state %>
+<select id="State" name="state">
 
-    <% Elected.all.pluck(:state).uniq.sort.each do |state| %>
-    <option value="<%= state %>"><%= state %></option>
-    <% end %>
+  <% Elected.all.pluck(:state).uniq.sort.each do |state| %>
+  <option value="<%= state %>"><%= state %></option>
+  <% end %>
 
-  </select>
-  <%= f.submit "Filter" %>
+</select>
+<%= f.submit "Filter" %>
 <% end %>
 
 <%= render @electeds %>
 
+</div>

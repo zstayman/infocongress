@@ -1,3 +1,4 @@
+<div class="display-space">
 <h2><%= @elected.first_name %> <%= @elected.last_name %></h2>
 
 <%= image_tag "headshots/#{@elected.biography}.jpg" %>
@@ -28,3 +29,4 @@ else
   <% end %>
 
   <%= render partial: "users/followform", locals: {choice: @elected} %>
+</div>

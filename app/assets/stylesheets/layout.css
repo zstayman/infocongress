@@ -216,7 +216,7 @@ form label {
 }
 
 .display-space {
-
+  text-align: center;
   width: 75%;
   margin: 0 auto;
 }
@@ -228,4 +228,38 @@ h1 {
 
 .indiv-elected {
   display: inline-block;
+  margin: 30px;
+}
+
+img {
+  display: inline-block;
+}
+
+form {
+  width: auto;
+  text-align: center;
+}
+
+.indiv-elected form{
+  margin: 5px;
+  text-align: center;
+}
+
+.indiv-elected a {
+  display: block;
+  font-size: 16px;
+  margin: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.space {
+  height: 250px;
+  width: 200px;
+}
+
+#State {
+  background: white;
+  border: 1px solid black;
+  color: black;
 }
