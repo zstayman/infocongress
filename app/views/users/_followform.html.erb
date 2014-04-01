@@ -1,9 +1,8 @@
 <% unless session[:user_id].nil? %>
     <% if User.find(session[:user_id]).electeds.include?(choice) %>
-      <%= button_to("Unfollow",  elected_electeds_user_path(session[:user_id] , choice.id), :method => :delete, remote: true) %>
+      <%= button_to("Unfollow",  elected_electeds_user_path(session[:user_id] , choice.id), :method => :delete) %>
     <% else %>
-      <%= button_to("Follow", elected_electeds_users_path(choice.id), :method => :post, remote: true) %>
+      <%= button_to("Follow", elected_electeds_users_path(choice.id), :method => :post) %>
   <% end %>
 <% else %>
 <% end %>
-
