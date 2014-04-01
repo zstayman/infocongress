@@ -1,7 +1,7 @@
 <h3><%= @committee.name %></h3>
 
 
-<% hearings = HTTParty.get("https://congress.api.sunlightfoundation.com/hearings?committee_id=#{@committee.committee_id}&dc=true&apikey=#{ENV['SUNLIGHT_API']}")["results"] %> 
+<% hearings = HTTParty.get("http://congress.api.sunlightfoundation.com/hearings?committee_id=#{@committee.committee_id}&dc=true&apikey=#{ENV['SUNLIGHT_API']}")["results"] %> 
 
 <% hearings = hearings.each do |hearing| %>
 <% hearing["occurs_at"] = DateTime.strptime(hearing["occurs_at"], '%Y-%m-%dT%H:%M:%S%z') %>
