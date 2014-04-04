@@ -1,4 +1,3 @@
-
 # INFOCONGRESS 
 
 ## GA WDI NYC Jan 14, Project 1
@@ -7,7 +6,7 @@ Infocongress allows you to track federal elected officials and look up informati
 
 ### List with links to all of the gems, apis or libraries you will use
 1. [Nokogiri] (http://nokogiri.org/)
-2. [Sunlight Foundation Congress API] (http://sunlightlabs.github.io/congress/)
+2. [Sunlight Foundation Congress API] (https://sunlightlabs.github.io/congress/)
 3. [Sunlight Foundation Influence Explorer API] (http://sunlightlabs.github.io/datacommons/)
 4. [HTTParty] (https://github.com/jnunemaker/httparty)
 
