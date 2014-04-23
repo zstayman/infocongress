@@ -22,7 +22,7 @@ body {
 
 #nav_bar {
   z-index: 1000000;
-  height: 100px; 
+  height: 100px;
   background-size: 100%;
 
   /*position: relative;*/
@@ -206,7 +206,7 @@ form input[type="submit"], button {
 form input[type="submit"]:hover, button:hover {
   background-color: rgb(191,31,30);
   color: white;
-} 
+}
 
 form label {
   font-size: 1.25em;
@@ -269,7 +269,7 @@ form {
   width: 75px;
 }
 
-.img-placeholder {
+.img-placeholder, .indiv-elected img {
   height: 256px;
   width: 214px;
   background: rgba(0,0,0,.4);

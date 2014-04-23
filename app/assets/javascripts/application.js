@@ -14,3 +14,29 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).on("ready", function(){
+  $(".follow").click(function(e){
+    e.preventDefault();
+    if(e.currentTarget.innerText === "Follow"){
+      $.ajax({
+        url: "/electeds/"+e.currentTarget.value+"/electeds_users",
+        type: "POST",
+        data: {
+          "elected_id": e.currentTarget.value
+        }
+      }).done(function(){console.log("DONE")});
+      e.currentTarget.innerText = "Unfollow"
+    }else{
+      $.ajax({
+        url: "/electeds/"+e.currentTarget.value+"/electeds_users/"+e.currentTarget.value,
+        type: "DELETE",
+        data: {
+          "elected_id": e.currentTarget.value
+        }
+      }).done(function(){console.log("DONE")});
+      e.currentTarget.innerText = "Follow";
+    }
+  });
+});
+

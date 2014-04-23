@@ -7,8 +7,8 @@
     local = nil
   else
     local = HTTParty.get("http://transparencydata.com/api/1.0/aggregates/pol/#{@elected.fec_id}/contributors/local_breakdown.json?cycle=2014&apikey=#{ENV['SUNLIGHT_API']}
-      ") 
-      end%>
+      ")
+  end%>
 
       <div class="campaign-finance">
         <% unless local.nil? %>
@@ -31,5 +31,11 @@
         <% end %>
       </div>
 
-      <%= render partial: "users/followform", locals: {choice: @elected} %>
+      <button class="follow" value=<%= @elected.id %>>
+        <% if current_user.electeds.include?(@elected) %>
+        Unfollow
+        <% else %>
+        Follow
+        <% end %>
+      </button>
     </div>
