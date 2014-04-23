@@ -4,7 +4,7 @@
 <%= form_for @elected, url: "/electeds/filter", method: "post" do |f| %>
 <%= f.label :state %>
 <select id="State" name="state">
-
+  <option value="all">All</option>
   <% Elected.all.pluck(:state).uniq.sort.each do |state| %>
   <option value="<%= state %>"><%= state %></option>
   <% end %>
@@ -16,12 +16,3 @@
 <%= render @electeds %>
 
 </div>
-
-<script type="text/javascript">
-  // $("form").click(function(e){
-  //   e.preventDefault();
-  //   var item = event.target;
-  //   console.log($(item).parent()[0]);
-  // })
-
-</script>
