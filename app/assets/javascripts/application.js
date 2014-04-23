@@ -25,7 +25,7 @@ $(document).on("ready", function(){
         data: {
           "elected_id": e.currentTarget.value
         }
-      }).done(function(){alert("DONE")});
+      });
       e.currentTarget.innerText = "Unfollow"
     }else{
       $.ajax({
@@ -34,7 +34,7 @@ $(document).on("ready", function(){
         data: {
           "elected_id": e.currentTarget.value
         }
-      }).done(function(){alert("DONE")});
+      });
       e.currentTarget.innerText = "Follow";
     }
   });
