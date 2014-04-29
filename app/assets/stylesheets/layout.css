@@ -298,15 +298,6 @@ form {
   font-weight: bolder;
 }
 
-/*.footer {
-  height: 100px;
-  position: absolute;
-  bottom: 0;
-  clear: both;
-  width: 100%;
-  display: block;
-}*/
-
 .wrapper {
   position: relative;
   margin-bottom: 100px;
@@ -315,4 +306,23 @@ form {
 canvas {
   display: block;
   margin: 0 auto;
+}
+
+#out-of-state {
+  float: left;
+  color: #7F7A67;
+}
+
+#in-state {
+  float: right;
+  color: #BCAE8F;
+}
+
+span {
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+.clearfix {
+  clear: both;
 }

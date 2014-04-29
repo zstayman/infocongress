@@ -6,9 +6,10 @@
   <div class="campaign-finance">
     <% unless @local.nil? %>
     <p class="center-text">In the 2014 Campaign Cycle <%= @elected.first_name %> <%= @elected.last_name %> has raised a total of $<%= number_with_delimiter(@local["In-State"].last.to_i + @local["Out-of-State"].last.to_i, delimiter: ",") %>, broken down as follows:</p>
-    <canvas id="donations" width="400" height="400"></canvas>
-    <p>In-State: $<%= @local["In-State"].last %></p>
-    <p>Out-of-State: $<%= @local["Out-of-State"].last %></p>
+    <canvas id="donations" width="250" height="250"></canvas>
+    <span id="in-state">In-State: $<%= number_with_delimiter(@local["In-State"].last, delimiter: ",") %></span>
+    <span id="out-of-state">Out-of-State: $<%= number_with_delimiter(@local["Out-of-State"].last, delimiter: ",") %></span>
+    <div class="clearfix"></div>
     <% else %>
     <p>No Campaign Finance Information is Currently Available</p>
     <% end %>
@@ -40,13 +41,20 @@ $(document).ready(function(){
   var ctx = $("#donations").get(0).getContext("2d");
   var data = [{
     value: <%= @local["In-State"][1] %>,
-    color: "#E55E24"
+    color: "#BCAE8F"
   },
   {
     value: <%= @local["Out-of-State"][1] %>,
-    color: "#2431E5"
-  }]
-  var myChart = new Chart(ctx).Doughnut(data);
+    color: "#7F7A67"
+  }];
+
+  var options = {
+    segmentShowStroke: false,
+    animationSteps: 50,
+    animationEasing: "easeOutBounce",
+    animateScale: true
+  };
+  var myChart = new Chart(ctx).Pie(data, options);
 })
 </script>
 <% end %>
