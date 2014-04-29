@@ -9,6 +9,11 @@ class ElectedsController < ApplicationController
   end
   def show
     @elected = Elected.find_by_id(params[:id].to_i)
+    if @elected.fec_id.nil?
+      @local = nil
+    else
+      @local = HTTParty.get("http://transparencydata.com/api/1.0/aggregates/pol/#{@elected.fec_id}/contributors/local_breakdown.json?cycle=2014&apikey=#{ENV['SUNLIGHT_API']}")
+    end
   end
 
   def filter

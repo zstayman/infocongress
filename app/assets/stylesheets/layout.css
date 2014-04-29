@@ -311,3 +311,8 @@ form {
   position: relative;
   margin-bottom: 100px;
 }
+
+canvas {
+  display: block;
+  margin: 0 auto;
+}

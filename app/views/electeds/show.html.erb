@@ -3,39 +3,50 @@
 
   <%= image_tag "headshots/#{@elected.biography}.jpg" %>
 
-  <% if @elected.fec_id.nil?
-    local = nil
-  else
-    local = HTTParty.get("http://transparencydata.com/api/1.0/aggregates/pol/#{@elected.fec_id}/contributors/local_breakdown.json?cycle=2014&apikey=#{ENV['SUNLIGHT_API']}
-      ")
-  end%>
+  <div class="campaign-finance">
+    <% unless @local.nil? %>
+    <p class="center-text">In the 2014 Campaign Cycle <%= @elected.first_name %> <%= @elected.last_name %> has raised a total of $<%= number_with_delimiter(@local["In-State"].last.to_i + @local["Out-of-State"].last.to_i, delimiter: ",") %>, broken down as follows:</p>
+    <canvas id="donations" width="400" height="400"></canvas>
+    <p>In-State: $<%= @local["In-State"].last %></p>
+    <p>Out-of-State: $<%= @local["Out-of-State"].last %></p>
+    <% else %>
+    <p>No Campaign Finance Information is Currently Available</p>
+    <% end %>
+  </div>
 
-      <div class="campaign-finance">
-        <% unless local.nil? %>
-        <p class="center-text">In the 2014 Campaign Cycle <%= @elected.first_name %> <%= @elected.last_name %> has raised a total of $<%= number_with_delimiter(local["In-State"].last.to_i + local["Out-of-State"].last.to_i, delimiter: ",") %>, broken down as follows:</p>
-        <p>In-State: $<%= local["In-State"].last %></p>
-        <p>Out-of-State: $<%= local["Out-of-State"].last %></p>
-        <% else %>
-        <p>No Campaign Finance Information is Currently Available</p>
-        <% end %>
-      </div>
-
-      <div class="elected-bio">
-        <p><strong><%= @elected.first_name %> <%= @elected.last_name %></strong> <%= @elected.bio_text %></p>
-      </div>
+  <div class="elected-bio">
+    <p><strong><%= @elected.first_name %> <%= @elected.last_name %></strong> <%= @elected.bio_text %></p>
+  </div>
 
 
-      <div class="elected-committee">
-        <% @elected.committees.each do |committee| %>
-        <%= link_to("#{committee.name}", committee_path(committee)) %><br>
-        <% end %>
-      </div>
+  <div class="elected-committee">
+    <% @elected.committees.each do |committee| %>
+    <%= link_to("#{committee.name}", committee_path(committee)) %><br>
+    <% end %>
+  </div>
 
-      <button class="follow" value=<%= @elected.id %>>
-        <% if current_user.electeds.include?(@elected) %>
-        Unfollow
-        <% else %>
-        Follow
-        <% end %>
-      </button>
-    </div>
+  <button class="follow" value=<%= @elected.id %>>
+    <% if current_user.electeds.include?(@elected) %>
+    Unfollow
+    <% else %>
+    Follow
+    <% end %>
+  </button>
+
+</div>
+<% unless @local.nil? %>
+<script>
+$(document).ready(function(){
+  var ctx = $("#donations").get(0).getContext("2d");
+  var data = [{
+    value: <%= @local["In-State"][1] %>,
+    color: "#E55E24"
+  },
+  {
+    value: <%= @local["Out-of-State"][1] %>,
+    color: "#2431E5"
+  }]
+  var myChart = new Chart(ctx).Doughnut(data);
+})
+</script>
+<% end %>
